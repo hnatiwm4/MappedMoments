@@ -1,0 +1,21 @@
+/* class expanded content to be 100% */
+.fill{
+    min-height: 940px; /* hardcoded for map */
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* common attributes among the different map containers*/
+.map{
+    position: relative;
+    border: 1px solid black;
+}
+
+/* for search overlay on map */
+.map-overlay-header{
+    color: white;
+}
+.map-overlay-header:hover{
+    color: yellow;
+    text-decoration: none;

@@ -1,0 +1,23 @@
+<!-- MAIN OVERVIEW MAP -->
+<div id="map_container" class="map">
+  <!-- implement simple google map api example -->
+  <div id="map" class="fill"></div>
+</div>
+
+<!-- Generate Map with javascript -->
+<!-- NOTE: set to Alberta for now -->
+<script type="text/javascript">
+  var mapOptions = {
+  // disable scroll wheel due to map size
+  scrollwheel: false,
+  // Long and Lat for Alberta in general
+  center: new google.maps.LatLng(54.800,-109.000),
+  // zoom 6 for just Alberta
+  zoom: 6
+  };    
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
+  // use add_markers helper to retrieve all valid markers for all valid cemeteries
+  handler.fitMapToBounds();
+  });
+</script>

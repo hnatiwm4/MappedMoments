@@ -1,0 +1,24 @@
+/* page setup */
+* { margin: 0; }
+
+
+/*** NOTE: boostrap distorts some Google Maps Overlays, to fix added this css ***/
+/* Source: http://github.com/twbs/boostrap/issues/1552 */
+#map label{ 
+    width: auto;
+    display: inline;
+}
+#map img{
+    max-width: none;
+}
+
+/*** FULL SCREEN MAP ***/
+#map_container{
+    width: 100%;
+    min-height: 100%;
+    over-flow: hidden;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
