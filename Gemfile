@@ -1,13 +1,17 @@
 source 'https://rubygems.org'
 
+# specify version of ruby used
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+# Use boostrap to create custom sass based style widgets and containers
+# NOTE: Latest version 3.0.3.0, using older one
+gem 'bootstrap-sass', '2.3.2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,6 +41,25 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Use pagination
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
+# use Geocoder for geolocations
+gem 'geocoder'
+
+# Use gmaps4rails for Google Maps Support through FORK request
+gem 'gmaps4rails'
+
+# Use underscore-rails (unserscore.js) with gmaps4rails
+gem 'underscore-rails'
+
+# production deployment on Heroku https://heroku.com
+group :production do
+  gem 'rails_12factor', '0.0.2'
+end
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
