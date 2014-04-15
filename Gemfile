@@ -57,6 +57,7 @@ gem 'underscore-rails'
 
 # production deployment on Heroku https://heroku.com
 group :production do
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 
