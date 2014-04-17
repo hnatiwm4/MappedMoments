@@ -17,8 +17,8 @@
   };    
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
-  // NOTE: ADD MARKER CODE HERE IN FUTURE
-
+  // use add_markers helper to retrieve all valid markers for all valid cemeteries
+  markers = handler.addMarkers(<%=raw add_markers(Moment.all).to_json %>);
   handler.fitMapToBounds();
   });
 </script>
