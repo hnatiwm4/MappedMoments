@@ -15,7 +15,6 @@ development:
   pool: 5
   username: michael
   password: shakotan-boogie
-  host: 127.0.0.1
   port: 3306
   timeout: 5000
 
@@ -29,7 +28,6 @@ test:
   pool: 5
   username: michael
   password: shakotan-boogie
-  host: 127.0.0.1
   port: 3306
   timeout: 5000
 
@@ -40,6 +38,5 @@ production:
   pool: 5
   username: michael
   password: shakotan-boogie
-  host: 127.0.0.1
   port: 3306
   timeout: 5000
