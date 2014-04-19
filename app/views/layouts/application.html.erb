@@ -16,7 +16,21 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
+
+    <!-- header of webpage -->
+    <%= render 'layouts/header' %>
+
+    <div id="main">
+
+        <%= yield %>
+
+    </div>
+
+</div>
+
+<!-- footer of webpage -->
+<%= render 'layouts/footer' %>
 
 </body>
 </html>

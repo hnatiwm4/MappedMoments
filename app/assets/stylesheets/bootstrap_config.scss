@@ -1,0 +1,90 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$macewanRed: #8b2232;
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* navs and navbars */
+.navbar-inner{
+  height: 100%;
+  text-align: center;
+}
+
+/* centers nav, navbar elements */
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.navbar .nav-pills >li >a {
+    /* color: #00580; */
+    font-size: 14pt;
+    color: #121212;
+}
+.navbar .nav-pills > li > a:hover {
+    background-color: #121212;
+    color: white;
+}
+.navbar .nav-pills .active > a {
+    background-color:#ccc;
+    color: #8b2232;
+}

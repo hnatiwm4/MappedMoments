@@ -14,7 +14,7 @@ development:
   database: mapped_moments_db
   pool: 5
   username: michael
-  password: shakotan-boogie
+  password: shakotanboogie
   port: 3306
   timeout: 5000
 
@@ -27,7 +27,7 @@ test:
   database: test_db
   pool: 5
   username: michael
-  password: shakotan-boogie
+  password: shakotanboogie
   port: 3306
   timeout: 5000
 
@@ -37,6 +37,6 @@ production:
   database: mapped_moments_db
   pool: 5
   username: michael
-  password: shakotan-boogie
+  password: shakotanboogie
   port: 3306
   timeout: 5000

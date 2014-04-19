@@ -1,0 +1,24 @@
+<h1>Create a Moment</h1>
+<%= form_for :moment, url: moments_path do |mnt| %>
+<p>
+  <%= mnt.label "Moment title:" %>
+  <%= mnt.text_field :title %>
+</p>
+<p>
+  <%= mnt.label "Description:" %>
+  <%= mnt.text_area :description %>
+</p>
+<p>
+  <%= mnt.label "Latitude:" %>
+  <%= mnt.text_field :lat %>
+</p>
+<p>
+  <%= mnt.label "Longitude:" %>
+  <%= mnt.text_field :long %>
+</p>
+<br/>
+<p>
+  <%= mnt.submit "Submit", class: "btn btn-large btn-primary" %>
+  <%= mnt.submit "Reset Form", :type => "reset", class: "btn btn-danger" %>
+</p>
+<% end %>

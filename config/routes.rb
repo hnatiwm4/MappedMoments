@@ -7,7 +7,7 @@ MappedMoments::Application.routes.draw do
 
   # match routes for static pages for general layout
   match '/home', to: 'pages#home', via: 'get'
-
+  match '/about', to: 'pages#about', via: 'get'
 
 
   # resource for moment objects
