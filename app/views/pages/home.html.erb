@@ -4,12 +4,13 @@
   <div id="map" class="fill"></div>
 </div>
 
+
 <!-- Generate Map with javascript -->
 <!-- NOTE: set to Alberta for now -->
 <script type="text/javascript">
   var mapOptions = {
   // disable scroll wheel due to map size
-  scrollwheel: false,
+  scrollwheel: true,
   // Long and Lat for Alberta in general
   center: new google.maps.LatLng(54.800,-109.000),
   // zoom 6 for just Alberta
@@ -17,8 +18,47 @@
   };    
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: mapOptions, internal: {id: 'map'}}, function(){
-  // use add_markers helper to retrieve all valid markers for all valid cemeteries
   markers = handler.addMarkers(<%=raw add_markers(Moment.all).to_json %>);
   handler.fitMapToBounds();
   });
+</script>
+
+
+<h1>Search</h1>
+<p>
+  <%= text_field :moment, :search, id: "searchText" %>
+</p>
+<br/>
+<p>
+  <%= button_tag "Search", type: "button", class: "btn btn-large btn-primary", id: "submitButton" %>
+</p>
+
+<script type="text/javascript">
+$(function () { 
+    map_search();
+});
+
+function map_search() {
+    /* create new map, reload markers, redefine center */
+    $("#submitButton").click(function() {
+        /* use AJAX to pass value to controller */
+        $.ajax({
+              type: 'POST',
+              url: 'moments/mapsearch',
+              data: { place: $("input[name='moment[search]']").val() },
+              success: function(data) {
+                           var mapOptions = {
+	                       scrollwheel: false,
+                               center: new google.maps.LatLng(data[0],data[1]),
+	                       zoom: 6
+	                   };
+                           $("input[name='moment[search]']").val(data);
+	                   var map = document.getElementById('map');
+	                   var newmap = new google.maps.Map(map,mapOptions);
+	                   map.map = newmap;
+                       }
+        });
+	//var newcenter = new google.maps.LatLng(51.013117,-114.0741556);
+    });
+}
 </script>

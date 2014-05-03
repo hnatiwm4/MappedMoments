@@ -46,11 +46,11 @@ end
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
-# use Geocoder for geolocations
-gem 'geocoder'
-
-# Use gmaps4rails for Google Maps Support through FORK request
+# Use gmaps4rails for Google Maps API and UI
 gem 'gmaps4rails'
+
+# Use geocorder for Geocoding locations with gmaps4rails
+gem 'geocoder'
 
 # Use underscore-rails (unserscore.js) with gmaps4rails
 gem 'underscore-rails'

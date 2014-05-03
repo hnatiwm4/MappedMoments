@@ -12,7 +12,9 @@ MappedMoments::Application.routes.draw do
 
   # resource for moment objects
   resources :moments do
-
+    collection do
+      post 'mapsearch'
+    end
   end
 
   # Example resource route (maps HTTP verbs to controller actions automatically):

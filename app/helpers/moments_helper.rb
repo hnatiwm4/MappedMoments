@@ -9,16 +9,19 @@ def add_markers(object)
   # use ActionController to create object instance to use render_to_string method
   info = ActionController::Base.new()
   @markers_hash = Gmaps4rails.build_markers(object) do |mnt, marker|
-    if mnt.lat != 0 && mnt.long != 0
+    if mnt.latitude != 0 && mnt.longitude != 0
       # set long and lat from cem object
-      marker.lat mnt.lat
-      marker.lng mnt.long
+      # NOTE: keep marker.lat and marker.lng named that, even if you change the column names
+      #       only works like that and I dont know why
+      marker.lat mnt.latitude
+      marker.lng mnt.longitude
       # set info window to paritial view, pass cem object and path to partial
       marker.infowindow info.render_to_string(:partial => 'moments/infowindow', :locals => {:moment => mnt, path: moment_path(:id => mnt.id_moment)})
     end
   end
   return @markers_hash
 end
+
 
 
 end

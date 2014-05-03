@@ -1,1 +1,0 @@
-INSERT INTO `moments`(`title`, `description`, `date_time`, `lat`, `long`, `date_created`) VALUES ("test1","This is a test",NOW(),53.6194017,-113.5428900,NOW());
