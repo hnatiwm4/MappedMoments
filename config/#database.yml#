@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: mapped_moments_db
   pool: 5
-  username: Michael
-  password: shakotanboogie
+  username: michael
+  password: iloveyouKS1
   port: 3306
   timeout: 5000
 
@@ -26,8 +26,8 @@ test:
   encoding: utf8
   database: test_db
   pool: 5
-  username: Michael
-  password: shakotanboogie
+  username: michael
+  password: iloveyouKS1
   port: 3306
   timeout: 5000
 
@@ -36,7 +36,7 @@ production:
   encoding: utf8
   database: mapped_moments_db
   pool: 5
-  username: Michael
+  username: michael
   password: shakotanboogie
   port: 3306
   timeout: 5000
