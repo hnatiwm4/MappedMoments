@@ -8,6 +8,9 @@
 <!-- Generate Map with javascript -->
 <!-- NOTE: set to Alberta for now -->
 <script type="text/javascript">
+
+  // INITIAL MAP 
+  // NOTE: build JS function for this in future
   var mapOptions = {
   // disable scroll wheel due to map size
   scrollwheel: true,
@@ -21,6 +24,36 @@
   markers = handler.addMarkers(<%=raw add_markers(Moment.all).to_json %>);
   handler.fitMapToBounds();
   });
+
+  // add submit button functionality for coordinate search (geocoding using google API)
+  // NOTE: Will change to incorporate Geocoder Gem functionality for geocoding
+  var geocoder = new google.maps.Geocoder();
+  function codeAddress() {
+      var address = document.getElementById('searchText').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var local_mapOptions = {
+        scrollwheel: true,
+        center: new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng()),
+        zoom: 8
+        };
+        // call global handler
+        handler.buildMap({ provider: local_mapOptions, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers([
+          {
+            "lat": results[0].geometry.location.lat(),
+            "lng": results[0].geometry.location.lng(),
+          }
+        ]);
+        handler.fitMapToBounds();
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+  });
+}
+
+
 </script>
 
 
@@ -30,15 +63,15 @@
 </p>
 <br/>
 <p>
-  <%= button_tag "Search", type: "button", class: "btn btn-large btn-primary", id: "submitButton" %>
+  <%= button_tag "Search", type: "button", class: "btn btn-large btn-primary", id: "submitButton", onclick: "codeAddress()" %>
 </p>
 
 <script type="text/javascript">
-$(function () { 
+/* $(function () { 
     map_search();
-});
+}); */
 
-function map_search() {
+ function map_search() {
     /* create new map, reload markers, redefine center */
     $("#submitButton").click(function() {
         /* use AJAX to pass value to controller */
