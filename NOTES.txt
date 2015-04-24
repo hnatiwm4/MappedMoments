@@ -1,3 +1,7 @@
 date: 22/04/2015
  - added gogole maps geocoding search functionaility to home view
  - need add ability to add multiple markers to new map when searched (i.e. add parameter to add_markers function under helpers)
+
+date: 23/04/2015
+ - added ability to add current searched marker to map when searching using JS and JSON
+

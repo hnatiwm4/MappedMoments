@@ -37,14 +37,17 @@
         center: new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng()),
         zoom: 8
         };
+
+        // new marker for map (uses json array)
+        var searched_marker = [{'lat' : results[0].geometry.location.lat(), 'lng' : results[0].geometry.location.lng()}];
+
+        // create json array of markers (including searched for location)
+        var moment_markers = <%=raw add_markers(Moment.all).to_json %>;
+        moment_markers = moment_markers.concat(searched_marker);
+
         // call global handler
         handler.buildMap({ provider: local_mapOptions, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers([
-          {
-            "lat": results[0].geometry.location.lat(),
-            "lng": results[0].geometry.location.lng(),
-          }
-        ]);
+        markers = handler.addMarkers(moment_markers);
         handler.fitMapToBounds();
         });
       } else {

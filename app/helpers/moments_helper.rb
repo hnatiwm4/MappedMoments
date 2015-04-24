@@ -22,6 +22,4 @@ def add_markers(object)
   return @markers_hash
 end
 
-
-
 end
